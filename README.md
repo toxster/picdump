@@ -1,13 +1,13 @@
 # picdump. 
 
-Processes images sent to a mailgun adress and and stores them on S3, hey! - it can show the pictures too! :)
+Processes images sent to a mailgun adress and and stores them on S3, hey! - it can _even_ show the pictures too! :)
 
 The application is divided into 2 (or 3) different roles, SOA style to allow for easy scaling by adding HAProxy or equivalent infront and distributing the load among the nodes.
 
 1. web/api (can be split up easily for scalability)
 1. workers 
 
-The application uses redis for it's main database, ofc. redis should be setup in a redundant manner.
+The application uses redis for its main database, ofc. redis should be setup in a redundant manner.
 
 Configuration is in ./config.rb, either change the required API keys there or inject them in production mode using environment variables (recommended!)
 
