@@ -2,9 +2,9 @@
 
 Processes images sent to a mailgun adress and and stores them on S3, hey! - it can show the pictures too! :)
 
-The application is divided into 2 different roles, SOA style to allow for easy scaling by adding HAProxy or equivalent infront and distributing the load among the nodes.
+The application is divided into 2 (or 3) different roles, SOA style to allow for easy scaling by adding HAProxy or equivalent infront and distributing the load among the nodes.
 
-1. web/api 
+1. web/api (can be split up easily for scalability)
 1. workers 
 
 The application uses redis for it's main database, ofc. redis should be setup in a redundant manner.
@@ -27,7 +27,8 @@ $ rackup -p 4567
 ```
 
 # Worker
-the app use sidekiq for parallell processing on SMP capable system (using Celluloid) 
+the app use sidekiq for parallell processing on SMP capable system (using Celluloid) when a mailgun event is received by the web/api app, it enqueues it and the task is then executed on a worker node(s). 
+
 ## To install (on osx)
 ```bash
 $ bundle install
