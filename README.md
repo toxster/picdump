@@ -46,3 +46,8 @@ e.g.
 store(notify="http://somehost.com:80/api/v1/mailnotify")
 ```
 
+# TODO
+
+1. write unit tests
+2. write E2E tests using selenium
+3. setup jenkins to automate testing and generating Docker images
